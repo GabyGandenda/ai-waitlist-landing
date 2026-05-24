@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Check, AlertCircle } from 'lucide-react';
+import { Mail, AlertCircle } from 'lucide-react';
 import { addToWaitlist, isEmailInWaitlist } from '@/lib/store';
 import { SuccessCard } from './SuccessCard';
 
@@ -38,7 +38,6 @@ export const WaitlistForm = () => {
     setState('loading');
     setError('');
 
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const entry = addToWaitlist(email);
@@ -104,7 +103,6 @@ export const WaitlistForm = () => {
         )}
       </AnimatePresence>
 
-      {/* Error message */}
       <AnimatePresence>
         {state === 'error' && (
           <motion.div
